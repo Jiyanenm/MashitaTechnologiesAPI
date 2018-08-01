@@ -28,12 +28,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Table(name="provinces")
 public class Provinces implements Serializable {
 
-	private static final long serialVersionUID = -4274393966627597249L;
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "province_id", unique = true, nullable = false)
 	private Long provinceId;
 	
@@ -44,19 +41,15 @@ public class Provinces implements Serializable {
 
 	
 	 @OneToMany(mappedBy="provinces")
-	 @JsonManagedReference
 	protected Set<Institution> institutions = new HashSet<Institution>();
 	
 	 @OneToMany(mappedBy="provinces")
-	 @JsonManagedReference
 	private Set<Investigator> investigators = new HashSet<Investigator>();
 	
 	 @OneToMany(mappedBy="provinces")
-	 @JsonManagedReference
 	private Set<ReportInstitution> reportinstitution = new HashSet<ReportInstitution>();
 	
 	 @OneToMany(mappedBy="provinces")
-	 @JsonManagedReference
 	public Set<City> city;
 	
 

@@ -18,21 +18,19 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="city")
-
 public class City implements Serializable{
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "city_id", unique = true, nullable = false)
 	private Long cityId;
 	
 	@Column(name = "city_name", nullable = false)
 	private String cityName;
 	
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "province_id", nullable = false)
+	@ManyToOne
+    @JoinColumn(name = "province_id")
 	private Provinces provinces;
 	
 	public Long getCityId() {

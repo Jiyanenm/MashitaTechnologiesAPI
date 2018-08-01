@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class InstitutionType implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "institution_type_id", unique = true, nullable = false)
 	private Long institutionTypeId;
 	

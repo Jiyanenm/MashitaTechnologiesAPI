@@ -54,7 +54,8 @@ public class Investigator implements Serializable {
 	private String investigatorAddressLineTwo;
 	
 	@ManyToOne
-	@JoinColumn(name = "province_id", nullable = false)
+	@JsonBackReference
+	@JoinColumn(name = "province_id")
 	private Provinces provinces;
 	
 	

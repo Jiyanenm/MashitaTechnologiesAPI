@@ -18,7 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.mashitatechnologies.model.Provinces;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
@@ -43,9 +43,11 @@ public class Institution implements Serializable {
 	
 	@Column(name = "institution_address_line2", nullable = false)
 	private String insttitutionAddressLineTwo;
+
 	
 	@ManyToOne
-	@JoinColumn(name = "province_id", nullable = true)
+	@JsonBackReference
+	@JoinColumn(name = "province_id")
 	private Provinces provinces;
 	
 	@Column(name = "town_address_line4", nullable = false)
